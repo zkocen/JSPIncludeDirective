@@ -3,16 +3,16 @@ package com.worldmanager.dbmodels;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-public class MySQLServerConnectionBehaviour extends DBUserInfo implements ServerConnectionBehaviour {
-
+public class MySQLServerConnectionBehaviour extends DBUserInfo implements
+		ServerConnectionBehaviour {
 	public MySQLServerConnectionBehaviour() {
 		super();
 	}
-	
-	public MySQLServerConnectionBehaviour(String uid, String pwd, String cat){
+
+	public MySQLServerConnectionBehaviour(String uid, String pwd, String cat) {
 		super(uid, pwd, cat);
 	}
-	
+
 	@Override
 	public Connection getConnection() {
 		try {
@@ -27,18 +27,19 @@ public class MySQLServerConnectionBehaviour extends DBUserInfo implements Server
 
 	@Override
 	public String getConnectionURL() {
-		return String.format("jdbc:mysql://localhost/world?user=root&password=presta2134");//, getUseID(), getPassword(), getCatalog());
+		return String.format("jdbc:mysql://localhost/%s"
+				+ "?user=%s&password=%s", getCatalog(), getUserID(),
+				getPassword());
 	}
 
 	@Override
 	public String getConnectionDetails() {
-		return "MySQL Database connection to " + getCatalog();
+		return "MySQL Database Connection to " + getCatalog();
 	}
 
 	@Override
 	public String getTablesSchemaQuery() {
-		return "select table_name from information_schema.tables"
+		return "select table_name from information_schema.tables "
 				+ "where table_schema = " + getCatalog();
 	}
-
 }
