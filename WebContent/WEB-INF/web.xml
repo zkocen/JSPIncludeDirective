@@ -18,6 +18,16 @@
     <param-name>dbinitcat</param-name>
     <param-value>world</param-value>
   </context-param>
+  <jsp-config>
+  	<jsp-property-group>
+  		<url-pattern>*.jsp</url-pattern>
+  		<scripting-invalid>true</scripting-invalid>
+  	</jsp-property-group>
+  </jsp-config>
+  <error-page>
+  	<error-code>404</error-code>
+  	<location>/errorHandler.jsp</location>
+  </error-page>
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
