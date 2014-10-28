@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:jsp="http://java.sun.com/xml/ns/javaee/jsp" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
   <display-name>JSPScriptlets</display-name>
   <listener>
     <listener-class>
@@ -19,18 +19,18 @@
     <param-value>world</param-value>
   </context-param>
   <jsp-config>
-  	<jsp-property-group>
-  		<url-pattern>*.jsp</url-pattern>
-  		<scripting-invalid>true</scripting-invalid>
-  	</jsp-property-group>
+    <jsp-property-group>
+      <url-pattern>*.jsp</url-pattern>
+      <scripting-invalid>true</scripting-invalid>
+    </jsp-property-group>
   </jsp-config>
   <error-page>
-  	<error-code>404</error-code>
-  	<location>/errorHandler.jsp</location>
+    <error-code>404</error-code>
+    <location>/errorHandler.jsp</location>
   </error-page>
   <error-page>
-  	<error-code>500</error-code>
-  	<location>/actionNotAllowed.jsp</location>
+    <error-code>500</error-code>
+    <location>/errorHandler.jsp</location>
   </error-page>
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
