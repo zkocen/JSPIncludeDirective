@@ -72,7 +72,7 @@
 						int id = rs.getInt("ID");
 						String name = rs.getString("NAME");
 						String ctry = rs.getString("CountryCode");
-						String dist = rs.getString("Dsictrict");
+						String dist = rs.getString("District");
 						int pop = rs.getInt("Population");
 						
 						sb.append("<tr><td>" + id + "</td>"
