@@ -26,6 +26,6 @@
 			</td>
 		</tr>
 	</table>
-	<jsp:attribute name="footer.jsp"></jsp:attribute>
+	<jsp:include page="footer.jsp" />
 </body>
 </html>
