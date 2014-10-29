@@ -9,12 +9,38 @@
 </head>
 <body>
 	<%@ include file="header.jsp" %>
+	<%! 
+		Cookie[] MyCookies;
+		String uid = "";
+		String pwd = "";
+		int authLevel = 0;
+	%>
 	<table style="width:100%">
 		<tr>
 			<td style="width:25%;height:80%;" valign="top">
 				<%@ include file="navbar.jsp" %>
 			</td>
 			<td style="width:75%;height:80%;">
+			<% 
+				if (session.getAttribute("uid") == null || session.getAttribute("uid").equals("")) {
+					MyCookies = request.getCookies();
+					if (MyCookies != null) {
+						for (Cookie c : MyCookies) {
+							if (c.getName().equalsIgnoreCase("credentials_uid")) {
+								uid = c.getValue();
+							}
+							else if (c.getName().equalsIgnoreCase("credentials_pwd")) {
+								pwd = c.getValue();
+							}
+						}
+					}
+				}
+				else {
+					uid = (String)session.getAttribute("uid");
+					pwd = (String)session.getAttribute("pwd");
+				}
+			
+			%>
 				<form id="form1" method="post" action="loginuser.do">
 					<table style="width:450px;">
 						<tr>
@@ -22,7 +48,7 @@
 								<span>UserName:</span>
 							</td>
 							<td>
-								<input name="uid" type="text" style="width:250px"/>
+								<input name="uid" type="text" style="width:250px" value="<%=uid%>"/>
 							</td>
 						</tr>
 						<tr>
@@ -30,7 +56,7 @@
 								<span>Password:</span>
 							</td>
 							<td>
-								<input name="pwd" type="password" style="width:250px;"/>
+								<input name="pwd" type="password" style="width:250px;" value="<%=pwd%>"/>
 							</td>
 						</tr>
 						<tr>
