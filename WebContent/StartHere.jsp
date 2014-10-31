@@ -21,7 +21,12 @@
 					pageContext.setAttribute("SessionCode", "258369147", pageContext.SESSION_SCOPE);
 					request.setAttribute("AnotherCode", "55544433");
 					String destination = "SecondPage.jsp?key=98765432";
-					response.sendRedirect(destination);
+					//response.sendRedirect(destination);
+					
+					//RequestDispatcher rd = request.getRequestDispatcher(destination);
+					//rd.forward(request, response);
+					
+					pageContext.forward(destination);
 				%>
 			</td>
 		</tr>
